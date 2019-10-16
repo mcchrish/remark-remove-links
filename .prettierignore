@@ -1,3 +1,3 @@
 coverage/
-remark-unlink.js
-remark-unlink.min.js
+remark-remove-links.js
+remark-remove-links.min.js

@@ -1,6 +1,6 @@
 {
   "name": "remark-remove-links",
-  "version": "2.1.2",
+  "version": "1.0.0",
   "description": "remark plugin to remove all links, references, and definitions",
   "license": "MIT",
   "keywords": [

@@ -1,7 +1,7 @@
 {
-  "name": "remark-unlink",
+  "name": "remark-remove-links",
   "version": "2.1.2",
-  "description": "remark plugin to remove all links, images, references, and definitions",
+  "description": "remark plugin to remove all links, references, and definitions",
   "license": "MIT",
   "keywords": [
     "unified",
@@ -18,12 +18,13 @@
     "remove",
     "text"
   ],
-  "repository": "remarkjs/remark-unlink",
-  "bugs": "https://github.com/remarkjs/remark-unlink/issues",
-  "author": "Eugene Sharygin <eush77@gmail.com>",
+  "repository": "mcchrish/remark-remove-links",
+  "bugs": "https://github.com/mcchrish/remark-remove-links/issues",
+  "author": "Michael Chris Lopez <hello@michaelchris.space>",
   "contributors": [
     "Eugene Sharygin <eush77@gmail.com>",
-    "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)"
+    "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)",
+    "Michael Chris Loez <hello@michaelchris.space> (https://michaelchris.space)"
   ],
   "files": [
     "index.js"
@@ -45,8 +46,8 @@
   },
   "scripts": {
     "format": "remark *.md -qfo && prettier --write \"**/*.js\" && xo --fix",
-    "build-bundle": "browserify . -s remarkUnlink -o remark-unlink.js",
-    "build-mangle": "browserify . -s remarkUnlink -p tinyify -o remark-unlink.min.js",
+    "build-bundle": "browserify . -s remarkRemoveLinks -o remark-remove-links.js",
+    "build-mangle": "browserify . -s remarkRemoveLinks -p tinyify -o remark-remove-links.min.js",
     "build": "npm run build-bundle && npm run build-mangle",
     "test-api": "node test",
     "test-coverage": "nyc --reporter lcov tape test/index.js",

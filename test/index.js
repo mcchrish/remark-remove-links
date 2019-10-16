@@ -4,12 +4,12 @@ var fs = require('fs')
 var path = require('path')
 var remark = require('remark')
 var test = require('tape')
-var remarkUnlink = require('..')
+var remarkRemoveLinks = require('..')
 
-test('remark-unlink', function(t) {
+test('remark-remove-links', function(t) {
   t.equal(
     remark()
-      .use(remarkUnlink)
+      .use(remarkRemoveLinks)
       .processSync(read('input1'))
       .toString(),
     remark()
@@ -20,7 +20,7 @@ test('remark-unlink', function(t) {
 
   t.equal(
     remark()
-      .use(remarkUnlink)
+      .use(remarkRemoveLinks)
       .processSync(read('input2'))
       .toString(),
     remark()
@@ -31,7 +31,7 @@ test('remark-unlink', function(t) {
 
   t.equal(
     remark()
-      .use(remarkUnlink, {allow: ['image']})
+      .use(remarkRemoveLinks, {allow: ['image']})
       .processSync(read('input3'))
       .toString(),
     remark()

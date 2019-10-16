@@ -1,4 +1,4 @@
-# remark-unlink
+# remark-remove-links
 
 [![Build][build-badge]][build]
 [![Coverage][coverage-badge]][coverage]
@@ -8,8 +8,10 @@
 [![Backers][backers-badge]][collective]
 [![Chat][chat-badge]][chat]
 
-[**remark**][remark] plugin to remove all links, images, references, and
+[**remark**][remark] plugin to remove all links, references, and
 definitions.
+Similar to [remark-unlink](https://github.com/remarkjs/remark-unlink) but
+allows images.
 
 Original motivation was to process Markdown documents in a way that would make
 it easier to read as a plain text.
@@ -20,7 +22,7 @@ On an ebook reader or a piece of paper the links are useless and look ugly.
 [npm][]:
 
 ```sh
-npm install remark-unlink
+npm install remark-remove-links
 ```
 
 ## Use
@@ -52,10 +54,10 @@ And our script, `example.js`, looks as follows:
 ```js
 var vfile = require('to-vfile')
 var remark = require('remark')
-var unlink = require('remark-unlink')
+var removeLinks = require('remark-remove-links')
 
 remark()
-  .use(unlink)
+  .use(removeLinks)
   .process(vfile.readSync('example.md'), function(err, file) {
     if (err) throw err
     console.log(String(file))
@@ -67,8 +69,8 @@ Now, running `node example` yields:
 ```markdown
 ## TOC
 
--   section 1
--   section 2
+- section 1
+- section 2
 
 ## section 1
 
@@ -76,24 +78,26 @@ Section content may include some links.
 
 ## section 2
 
+![some images are here also](https://gif.com/1.gif)
+
 More content.
 ```
 
 ## API
 
-#### `remark().use(unlink)`
+#### `remark().use(removeLinks)`
 
-Plugin to remove all links, images, references, and definitions.
+Plugin to remove all links, references, and definitions.
 
 ## Security
 
-Use of `remark-unlink` does not involve [**rehype**][rehype] ([**hast**][hast])
-or user content so there are no openings for [cross-site scripting (XSS)][xss]
-attacks.
+Use of `remark-remove-links` does not involve [**rehype**][rehype]
+([**hast**][hast])or user content so there are no openings for
+[cross-site scripting (XSS)][xss] attacks.
 
 ## Contribute
 
-See [`contributing.md`][contributing] in [`remarkjs/.github`][health] for ways
+See [`contributing.md`][contributing] in [`mcchrish/.github`][health] for ways
 to get started.
 See [`support.md`][support] for ways to get help.
 
@@ -103,23 +107,23 @@ abide by its terms.
 
 ## License
 
-[MIT][license] © Eugene Sharygin
+[MIT][license] © Michael Chris Lopez
 
-[build-badge]: https://img.shields.io/travis/remarkjs/remark-unlink/master.svg
+[build-badge]: https://img.shields.io/travis/mcchrish/remark-remove-links/master.svg
 
-[build]: https://travis-ci.org/remarkjs/remark-unlink
+[build]: https://travis-ci.org/mcchrish/remark-remove-links
 
-[coverage-badge]: https://img.shields.io/codecov/c/github/remarkjs/remark-unlink.svg
+[coverage-badge]: https://img.shields.io/codecov/c/github/mcchrish/remark-remove-links.svg
 
-[coverage]: https://codecov.io/github/remarkjs/remark-unlink
+[coverage]: https://codecov.io/github/mcchrish/remark-remove-links
 
-[downloads-badge]: https://img.shields.io/npm/dm/remark-unlink.svg
+[downloads-badge]: https://img.shields.io/npm/dm/remark-remove-links.svg
 
-[downloads]: https://www.npmjs.com/package/remark-unlink
+[downloads]: https://www.npmjs.com/package/remark-remove-links
 
-[size-badge]: https://img.shields.io/bundlephobia/minzip/remark-unlink.svg
+[size-badge]: https://img.shields.io/bundlephobia/minzip/remark-remove-links.svg
 
-[size]: https://bundlephobia.com/result?p=remark-unlink
+[size]: https://bundlephobia.com/result?p=remark-remove-links
 
 [sponsors-badge]: https://opencollective.com/unified/sponsors/badge.svg
 
@@ -133,17 +137,17 @@ abide by its terms.
 
 [npm]: https://docs.npmjs.com/cli/install
 
-[health]: https://github.com/remarkjs/.github
+[health]: https://github.com/mcchrish/.github
 
-[contributing]: https://github.com/remarkjs/.github/blob/master/contributing.md
+[contributing]: https://github.com/mcchrish/.github/blob/master/contributing.md
 
-[support]: https://github.com/remarkjs/.github/blob/master/support.md
+[support]: https://github.com/mcchrish/.github/blob/master/support.md
 
-[coc]: https://github.com/remarkjs/.github/blob/master/code-of-conduct.md
+[coc]: https://github.com/mcchrish/.github/blob/master/code-of-conduct.md
 
 [license]: license
 
-[remark]: https://github.com/remarkjs/remark
+[remark]: https://github.com/mcchrish/remark
 
 [xss]: https://en.wikipedia.org/wiki/Cross-site_scripting
 

@@ -7,9 +7,9 @@ var types = ['link', 'linkReference', 'image', 'imageReference', 'definition']
 
 var splice = [].splice
 
-module.exports = unlink
+module.exports = removeLinks
 
-function unlink(options = {}) {
+function removeLinks(options = {}) {
   return transformer
 
   function transformer(tree) {
